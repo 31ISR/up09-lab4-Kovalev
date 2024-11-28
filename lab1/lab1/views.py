@@ -10,3 +10,10 @@ def about(req):
     # Обычно `req` — это объект запроса (request), передаваемый Django при вызове функции.
 
     return render(req, "about.html")
+def about(req):
+    # Определение функции `about`, которая принимает один параметр `req`.
+    # Обычно `req` — это объект запроса (request), передаваемый Django при вызове функции.
+
+    return render(req, "home.html")
+
+
