@@ -20,10 +20,11 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', views.about),
-    path('home/', views.about),
+    path('about/', views.about, name="about"),
+    path('', views.home, name="home"),
     path('posts/', include('posts.urls')),
     path('communities/', include('communities.urls')),
+    
     # Маршрут, связывающий URL `/about/` с функцией `about` из модуля `views`.
     # Когда пользователь открывает `/about/`, вызывается функция `about`, которая,
     # в данном случае, возвращает HTML-шаблон "about.html".

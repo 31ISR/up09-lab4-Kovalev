@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Посты</title>
-</head>
-
-<body>
-    <h1>Посты</h1>
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-
-</html>
+{% extends 'layout.html' %} {% block title %} Posts {% endblock %} 
+{% block content %}
+    <section>
+        <h1>Posts</h1>
+    
+        {% for post in posts %}
+        <article class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.date }}</p>
+            <p>{{ post.body }}</p>
+        </article>
+        {% endfor %}
+    </section>
+{% endblock %}
