@@ -14,18 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', views.about, name="about"),
     path('', views.home, name="home"),
+    path('about/', views.about, name="about"),
     path('posts/', include('posts.urls')),
-    path('communities/', include('communities.urls')),
-    
-    # Маршрут, связывающий URL `/about/` с функцией `about` из модуля `views`.
-    # Когда пользователь открывает `/about/`, вызывается функция `about`, которая,
-    # в данном случае, возвращает HTML-шаблон "about.html".
+    path('communities/', include('communities.urls'))
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

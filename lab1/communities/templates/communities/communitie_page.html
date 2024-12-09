@@ -2,6 +2,7 @@
 {% block title %} {{ communitie.title }} {% endblock %} 
 {% block content %}
 <section>
+    <img class="banner" src="{{ communitie.banner.url }}" alt="{{ communitie.title }}" />
     <h1>{{ communitie.title }}</h1>
     <p>{{ communitie.date }}</p>
     <p>{{ communitie.body }}</p>
