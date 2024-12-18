@@ -19,6 +19,23 @@
             <a class="nav-link" href="{% url 'about' %}">Обо мне</a>
             <a class="nav-link" href="{% url 'posts:list' %}">Посты</a>
             <a class="nav-link" href="{% url 'communities:communities' %}">Группы</a> 
+            <a
+                name=""
+                id=""
+                class="btn btn-success"
+                href="{% url 'users:register' %}"
+                role="button"
+                >Зарегистрироваться</a
+            >
+            <a
+                name=""
+                id=""
+                class="btn btn-primary"
+                href="{% url 'users:login' %}"
+                role="button"
+                >Войти</a
+            >
+            
         </nav>
 
     </header>
