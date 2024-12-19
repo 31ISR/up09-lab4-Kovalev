@@ -7,13 +7,13 @@ def communities_list(request):
     return render(request, 'communities/communities_list.html', {'communities': communities})
 
 def communitie_page(request, slug):
-    communitie = Communities.objects.get(slug=slug)  # исправлено имя переменной
+    communitie = Communities.objects.get(slug=slug) 
     return render(request, 'communities/communitie_page.html', {'communitie': communitie})
 
 from . import forms 
 
 @login_required(login_url="/users/login/")
-def post_new(request):
+def communities_new(request):
     if request.method == 'POST': 
         form = forms.CreateCommunitie(request.POST, request.FILES) 
         if form.is_valid():
@@ -23,4 +23,4 @@ def post_new(request):
             return redirect('communities:list')
     else:
         form = forms.CreateCommunitie()
-    return render(request, 'communities/communitieы_new.html', { 'form': form })
+    return render(request, 'communities/communities_new.html', { 'form': form })

@@ -13,14 +13,18 @@ def register_view(request):
     return render(request, "users/register.html", { "form": form })
 
 def login_view(request):
-    if form.is_valid(): 
+    if request.method == "POST":
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid(): 
             login(request, form.get_user())
+            # Проверяем наличие параметра 'next' в запросе
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
                 return redirect("posts:list")
     else: 
-        form = AuthenticationForm()
+        form = AuthenticationForm()  # Инициализация формы для GET-запроса
+
     return render(request, "users/login.html", { "form": form })
 
 def logout_view(request):
